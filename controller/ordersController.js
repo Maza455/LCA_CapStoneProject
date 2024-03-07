@@ -1,4 +1,4 @@
-import db from "../models";
+import db from "../models/orderModel.js";
 const Order = db.order;
 
 // Orders

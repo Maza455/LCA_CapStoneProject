@@ -1,5 +1,5 @@
 import express from 'express';
-import User from '../models/user.js';
+import User from '../models/userModel.js';
 
 class UserController {
     // CREATE 1 USER
@@ -125,3 +125,5 @@ class UserController {
 export {
     UserController
 };
+    
+export default UserController;

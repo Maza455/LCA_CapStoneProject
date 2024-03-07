@@ -1,4 +1,4 @@
-import db from "../models";
+import db from "../models/customerModel.js";
 const Customer = db.customer;
 
 class CustomerController {
@@ -130,6 +130,6 @@ class CustomerController {
     }
 }
 
-export {
+export default {
     CustomerController
 };

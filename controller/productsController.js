@@ -4,12 +4,12 @@ import jwt from 'jsonwebtoken';
 import dotenv from 'dotenv';
 import config from '../config/config.js';
 // import db from '../models';
-import Product from '../models/Product';
-import Trader from '../models/Trader';
+import Product from '../models/productModel.js';
+import Trader from '../models/traderModel.js';
 
 dotenv.config();
 
-class ProductController {
+class ProductsController {
     static createProduct = async (req, res) => {
         try {
             const {
@@ -194,6 +194,6 @@ class ProductController {
     };
 }
 
-export {
-    ProductController
+export default {
+    ProductsController
 };
