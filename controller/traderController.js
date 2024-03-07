@@ -4,7 +4,7 @@ import jwt from 'jsonwebtoken';
 import dotenv from 'dotenv';
 import config from '../config/config.js';
 // import db from '../models';
-import Trader from '../models/Trader';
+import Trader from '../models/traderModel.js';
 
 dotenv.config();
 
@@ -227,6 +227,6 @@ class TraderController {
     };
 }
 
-export {
+export default {
     TraderController
 };
