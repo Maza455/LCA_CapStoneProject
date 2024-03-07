@@ -3,9 +3,8 @@ import bodyParser from 'body-parser';
 import dotenv from 'dotenv';
 import cors from 'cors';
 import {
-    DB
-} from './config/db.config';
-// import mongoose from 'mongoose';
+    Config
+} from './config/config.js';
 
 // import routes
 import userRoutes from './routes/userRoutes';
@@ -50,7 +49,7 @@ class App {
     }
 
     db() {
-        mongoose.connect(DB.db_url, {
+        mongoose.connect(Config.db_url, {
                 useNewUrlParser: true,
                 useUnifiedTopology: true
             })
