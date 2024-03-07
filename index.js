@@ -7,11 +7,11 @@ import {
 } from './config/config.js';
 
 // import routes
-import userRoutes from './routes/userRoutes';
-import traderRoutes from './routes/traderRoutes';
-import customerRoutes from './routes/customerRoutes';
-import productsRoutes from './routes/productsRoutes';
-import ordersRoutes from './routes/ordersRoutes';
+import userRoutes from './routes/userRoutes.js';
+import traderRoutes from './routes/traderRoutes.js';
+import customerRoutes from './routes/customerRoutes.js';
+import productsRoutes from './routes/productsRoutes.js';
+import ordersRoutes from './routes/ordersRoutes.js';
 
 class App {
     constructor() {
