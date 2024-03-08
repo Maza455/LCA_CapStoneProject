@@ -11,6 +11,6 @@ router.put('/:id', controller.updateCustomer); // UPDATE 1 CUSTOMERS
 router.delete('/deleteAll-customers', controller.deleteAllCustomers); // DELETE ALL CUSTOMERS
 router.delete('/:id', controller.deleteCustomer); // DELETE 1 CUSTOMERS
 
-export {
+export default {
     router
 };

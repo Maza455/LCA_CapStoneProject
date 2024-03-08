@@ -11,6 +11,6 @@ router.patch('/:id', controller.update); // UPDATE 1 USER
 router.delete('/deleteAll', controller.deleteAll); // DELETE ALL USERS
 router.delete('/:id', controller.deleteOne); // DELETE 1 USERS
 
-export {
+export default {
     router
 };

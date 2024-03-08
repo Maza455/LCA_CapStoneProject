@@ -11,6 +11,6 @@ router.patch('/:id', controller.updateOrder); // UPDATE 1 ORDER
 router.delete('/delete-all-orders', controller.deleteAllOrders); // DELETE ALL ORDERS
 router.delete('/:id', controller.deleteOrder); // DELETE 1 ORDER
 
-export {
+export default {
     router
 };

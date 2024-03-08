@@ -54,3 +54,5 @@ export {
     addOrder,
     getOrderById
 };
+
+export default Order;

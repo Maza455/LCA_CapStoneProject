@@ -7,10 +7,19 @@ const pool = mysql.createPool({
     password: process.env.DB_UserPass
 });
 
+class User {
+    constructor(id, fName, email, password) {
+        this.id = id;
+        this.fName = fName;
+        this.email = email;
+        this.password = password;
+    }
+}
+
 const createUserTable = async () => {
     const connection = await pool.getConnection();
     await connection.query(`
-    CREATE TABLE IF NOT EXISTS users (
+    CREATE TABLE IF NOT EXISTS Users (
       id INT AUTO_INCREMENT PRIMARY KEY,
       fName VARCHAR(255) NOT NULL,
       email VARCHAR(255) NOT NULL,
