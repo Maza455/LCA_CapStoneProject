@@ -194,6 +194,8 @@ class ProductsController {
     };
 }
 
-export default {
+export {
     ProductsController
 };
+
+export default Controller;

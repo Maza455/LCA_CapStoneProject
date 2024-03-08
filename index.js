@@ -2,9 +2,9 @@ import express from 'express';
 import bodyParser from 'body-parser';
 import dotenv from 'dotenv';
 import cors from 'cors';
-import {
+import 
     Config
-} from './config/config.js';
+ from './config/config.js';
 
 // import routes
 import userRoutes from './routes/userRoutes.js';
@@ -18,7 +18,7 @@ class App {
         this.app = express();
         this.port = process.env.PORT || 5555;
 
-        this.middlewares();
+        this.middleware();
 
         // import routes
         this.routes();
@@ -28,7 +28,7 @@ class App {
         this.listen();
     }
 
-    middlewares() {
+    middleware() {
         this.app.use(bodyParser.urlencoded({
             extended: true
         }));
@@ -49,7 +49,7 @@ class App {
     }
 
     db() {
-        mongoose.connect(Config.db_url, {
+        dba.connect(Config.db_url, {
                 useNewUrlParser: true,
                 useUnifiedTopology: true
             })

@@ -7,6 +7,20 @@ const pool = mysql.createPool({
     password: process.env.DB_UserPass
 });
 
+class Trader {
+    constructor(id, fname, cell, businessName, address, image, email, password, inventory) {
+        this.id = id;
+        this.fname = fname;
+        this.cell = cell;
+        this.businessName = businessName;
+        this.address = address;
+        this.image = image || 'https://www.pngitem.com/pimgs/m/82-824451_transparent-supplier-icon-png-team-work-icon-transparent.png';
+        this.email = email;
+        this.password = password;
+        this.inventory = inventory;
+    }
+}
+
 const createTraderTable = async () => {
     const connection = await pool.getConnection();
     await connection.query(`

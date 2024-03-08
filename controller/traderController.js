@@ -8,8 +8,8 @@ import Trader from '../models/traderModel.js';
 
 dotenv.config();
 
-class TraderController {
-    static createTrader = async (req, res) => {
+const traderController = {
+    createTrader: async (req, res) => {
         try {
             const {
                 fname,
@@ -41,9 +41,9 @@ class TraderController {
                 error: 'Internal server error'
             });
         }
-    };
+    },
 
-    static signin = async (req, res) => {
+    signin: async (req, res) => {
         try {
             const {
                 email,
@@ -89,9 +89,9 @@ class TraderController {
                 error: 'Internal server error'
             });
         }
-    };
+    },
 
-    static getAllTraders = async (req, res) => {
+    getAllTraders: async (req, res) => {
         try {
             const traders = await Trader.find();
             res.json(traders);
@@ -100,28 +100,30 @@ class TraderController {
                 error: 'Internal server error'
             });
         }
-    };
+    },
 
-    static getTraderById = async (req, res) => {
+    getTraderById: async (req, res) => {
         try {
             const {
                 id
             } = req.params;
             const trader = await Trader.findById(id);
+
             if (!trader) {
                 return res.status(404).json({
                     error: 'Trader not found'
                 });
             }
+
             res.json(trader);
         } catch (error) {
             res.status(500).json({
                 error: 'Internal server error'
             });
         }
-    };
+    },
 
-    static updateTrader = async (req, res) => {
+    updateTrader: async (req, res) => {
         try {
             const {
                 id
@@ -133,41 +135,43 @@ class TraderController {
                 businessName,
                 address
             } = req.body;
-            const trader = await Trader.findByIdAndUpdate(
-                id, {
-                    email,
-                    password,
-                    fname,
-                    businessName,
-                    address
-                }, {
-                    new: true
-                }
-            );
-            if (!trader) {
+            const updatedTrader = await Trader.findByIdAndUpdate(id, {
+                email,
+                password,
+                fname,
+                businessName,
+                address
+            }, {
+                new: true
+            });
+
+            if (!updatedTrader) {
                 return res.status(404).json({
                     error: 'Trader not found'
                 });
             }
-            res.json(trader);
+
+            res.json(updatedTrader);
         } catch (error) {
             res.status(500).json({
                 error: 'Internal server error'
             });
         }
-    };
+    },
 
-    static deleteTrader = async (req, res) => {
+    deleteTrader: async (req, res) => {
         try {
             const {
                 id
             } = req.params;
-            const trader = await Trader.findByIdAndDelete(id);
-            if (!trader) {
+            const deletedTrader = await Trader.findByIdAndDelete(id);
+
+            if (!deletedTrader) {
                 return res.status(404).json({
                     error: 'Trader not found'
                 });
             }
+
             res.json({
                 message: 'Trader deleted successfully'
             });
@@ -176,9 +180,9 @@ class TraderController {
                 error: 'Internal server error'
             });
         }
-    };
+    },
 
-    static deleteAllTraders = async (req, res) => {
+    deleteAllTraders: async (req, res) => {
         try {
             await Trader.deleteMany();
             res.json({
@@ -189,9 +193,9 @@ class TraderController {
                 error: 'Internal server error'
             });
         }
-    };
+    },
 
-    static createInventoryProduct = async (req, res) => {
+    createInventoryProduct: async (req, res) => {
         try {
             const trader = await Trader.findById(req.traders._id);
             const productId = req.product._id;
@@ -224,9 +228,9 @@ class TraderController {
         } catch (err) {
             res.status(500).json(err);
         }
-    };
-}
+    }
+};
 
 export default {
-    TraderController
+    traderController
 };

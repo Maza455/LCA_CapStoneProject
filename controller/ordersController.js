@@ -1,7 +1,5 @@
-import db from "../models/orderModel.js";
-const Order = db.order;
-
-// Orders
+import Order from "../models/orderModel.js";
+import Controller from "./productsController.js";
 
 // Create a new order
 export const createOrder = async (req, res) => {
@@ -123,3 +121,5 @@ export const deleteAllOrders = async (req, res) => {
         });
     }
 };
+
+export default Controller;

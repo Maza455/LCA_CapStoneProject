@@ -1,5 +1,5 @@
 import express from 'express'
-import {controller} from '../controller/productsController.js'
+import controller from '../controller/productsController.js'
 
 const router = express.Router();
 
@@ -19,6 +19,6 @@ const router = express.Router();
 
     rs.use('/v1/products/', router)
 
-export {
+export default {
     router
 }
